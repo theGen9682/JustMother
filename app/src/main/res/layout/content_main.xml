@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditText android:layout_width="330dp" android:layout_height="46dp"
+              android:background="@drawable/search_bar"
+              android:layout_marginTop="76dp"
+              app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              android:textAlignment="center"
+              android:id="@+id/search_query" android:layout_alignParentEnd="true"
+              android:layout_alignParentStart="true" android:scrollHorizontally="false"
+              android:hint="Search Your Query"/>
+    <ProgressBar android:layout_width="330dp" android:layout_height="16dp"
+                 style="@style/CustomProgressBar"
+                 android:progress="35"
+                 app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+
+                 app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                 android:layout_marginTop="20dp" app:layout_constraintTop_toBottomOf="@+id/search_query"
+                 android:id="@+id/progress_bar" app:layout_constraintHorizontal_bias="0.452"/>
+
+
+    <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content"
+                 android:id="@+id/book_tests"
+                 android:layout_marginTop="44dp"
+                 app:layout_constraintTop_toBottomOf="@+id/progress_bar" app:layout_constraintStart_toStartOf="parent"
+                 android:layout_marginStart="44dp"
+                 android:background="@drawable/book_tests" app:layout_constraintEnd_toStartOf="@+id/book_scans"
+                 android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.078"/>
+
+
+    <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content"
+                 android:id="@+id/book_scans"
+                 android:layout_marginTop="44dp"
+                 app:layout_constraintTop_toBottomOf="@+id/progress_bar" app:layout_constraintEnd_toEndOf="parent"
+                 android:layout_marginEnd="44dp"
+                 android:background="@drawable/book_scans"/>
+
+
+    <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content"
+                 android:id="@+id/consult_doctors"
+                 android:layout_marginTop="48dp"
+                 app:layout_constraintTop_toBottomOf="@+id/show_packages" app:layout_constraintStart_toStartOf="parent"
+                 android:layout_marginStart="48dp"
+                 android:background="@drawable/consult_doctors"/>
+
+    <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content"
+                 android:id="@+id/diet_plans"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 android:layout_marginEnd="40dp" android:layout_marginTop="48dp"
+                 app:layout_constraintTop_toBottomOf="@+id/show_packages"
+                 android:background="@drawable/diet_plans"/>
+
+
+    <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content"
+                 android:id="@+id/pregnancy_articles"
+                 android:layout_marginTop="44dp"
+                 app:layout_constraintTop_toBottomOf="@+id/consult_doctors"
+                 app:layout_constraintStart_toStartOf="parent"
+                 android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                 android:layout_marginEnd="8dp"
+                 android:background="@drawable/pregnancy_articles" app:layout_constraintHorizontal_bias="0.501"/>
+
+
+    <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content"
+                 android:id="@+id/show_packages"
+                 android:layout_marginTop="48dp"
+                 app:layout_constraintTop_toBottomOf="@+id/book_tests" app:layout_constraintStart_toStartOf="parent"
+                 android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                 android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.501"
+                 android:background="@drawable/show_packages"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
