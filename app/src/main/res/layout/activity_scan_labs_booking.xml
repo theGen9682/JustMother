@@ -7,13 +7,6 @@
         android:layout_height="match_parent"
         tools:context=".ScanLabsBooking">
     <TextView
-            android:text="Select A Lab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView2" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="40dp"
-            android:layout_marginTop="68dp" android:textSize="24sp"/>
-    <TextView
             android:text="Enter Your Time Slot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,7 +28,7 @@
             android:id="@+id/textView4"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="40dp" android:textSize="24sp"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup" android:layout_marginTop="16dp"/>
+            app:layout_constraintTop_toBottomOf="@+id/spinner" android:layout_marginTop="36dp"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,30 +41,23 @@
             android:text="Book Now"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/button" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:id="@+id/BookNowBtn" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintHorizontal_bias="0.0" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"/>
-    <RadioGroup
+    <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/spinner"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
-            android:layout_marginTop="24dp" android:layout_marginStart="40dp" android:id="@+id/radioGroup"
-            android:onClick="On">
-        <RadioButton
-                android:layout_margin="4dp"
-                android:text="Lab 1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/lab1Button"
-                android:textSize="14sp" android:onClick="onRadioButtonClicked"/>
-        <RadioButton
-                android:text="Lab 2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/lab2Button"
-                android:textSize="14sp"
-                android:layout_margin="4dp" android:onClick="onRadioButtonClicked"/>
-    </RadioGroup>
+            android:layout_marginStart="40dp" app:layout_constraintTop_toBottomOf="@+id/textView2"
+            android:layout_marginTop="20dp"/>
+    <TextView
+            android:text="Select Lab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2" android:textSize="24sp"
+            android:layout_marginTop="48dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginStart="48dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

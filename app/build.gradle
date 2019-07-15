@@ -27,7 +27,7 @@ android {
         }
     }
 }
-apply plugin: 'kotlin-kapt'
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -48,5 +48,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:20.1.0'
 
     implementation 'com.firebaseui:firebase-ui-storage:4.3.1'
-    kapt 'com.github.bumptech.glide:compiler:4.9.0'
+
+
+    implementation 'com.google.firebase:firebase-database:18.0.0'
+
 }
