@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS", "NAME_SHADOWING")
 class ScanLabsBooking : AppCompatActivity() {
 
     private lateinit var database:DatabaseReference
@@ -30,13 +30,14 @@ class ScanLabsBooking : AppCompatActivity() {
         val scanName = intent.getStringExtra("ScanName")
 
 
+        val bookingName=findViewById<EditText>(R.id.editText_Name)
         val timeSlot = findViewById<EditText>(R.id.time)
         val dateSlot = findViewById<EditText>(R.id.date)
 
         val bookNow=findViewById<Button>(R.id.BookNowBtn)
 
 
-        val labs= arrayOf("Lab 1", "Lab 2")
+        val labs= arrayOf("Choose a Lab","Lab 1", "Lab 2")
 
         val spinner=findViewById<Spinner>(R.id.spinner)
 
@@ -53,7 +54,7 @@ class ScanLabsBooking : AppCompatActivity() {
                 }
 
                 override fun onItemSelected(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                    Toast.makeText(this@ScanLabsBooking,"Lab Selected",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ScanLabsBooking,"${labs[position]} Selected",Toast.LENGTH_SHORT).show()
                 }
 
             }
@@ -67,7 +68,8 @@ class ScanLabsBooking : AppCompatActivity() {
         database=FirebaseDatabase.getInstance().reference
 
         bookNow.setOnClickListener {
-
+            val selectedLab=spinner.selectedItem.toString()
+            val name=bookingName.text.toString()
             val scanTime = timeSlot.text.toString()
             val scanDate = dateSlot.text.toString()
 
@@ -75,7 +77,7 @@ class ScanLabsBooking : AppCompatActivity() {
             Log.d("Scan Time\n\n","------------------------------------------------------------\n$scanTime")
 
 
-            writeInDatabase(selectedLab, "Digen", scanName, scanTime, scanDate)
+            writeInDatabase(selectedLab, name, scanName, scanTime, scanDate)
             Toast.makeText(this@ScanLabsBooking,"Test Booked",Toast.LENGTH_SHORT).show()
 
         }

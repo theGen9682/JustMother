@@ -94,6 +94,9 @@ class tests : AppCompatActivity() {
             val getBtn = testList.findViewById<ImageButton>(R.id.get_tests)
 
             getBtn.setOnClickListener{
+
+                val testBookingIntent=Intent(testsListContext,TestLabsBooking::class.java)
+                testsListContext.startActivity(testBookingIntent)
                Toast.makeText(testsListContext,"Get Button Clicked $position", Toast.LENGTH_SHORT).show()
             }
 

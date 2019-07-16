@@ -4,47 +4,55 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_height="match_parent"
         android:layout_width="match_parent"
         xmlns:android="http://schemas.android.com/apk/res/android">
-    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
-                  android:orientation="vertical">
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/scrollView3">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:orientation="vertical">
 
-        <TextView
-                android:text="Title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/test_Title" android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp" android:layout_marginBottom="8dp" android:textSize="24sp"/>
-        <TextView
-                android:text="What is this Test?"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/test_Info" android:textSize="18sp"
-                android:layout_marginStart="8dp" android:layout_marginTop="8dp" android:layout_marginBottom="8dp"/>
-        <TextView
-                android:text="Content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/test_Content" android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp" android:textSize="18sp" android:maxLines="20"/>
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" tools:srcCompat="@tools:sample/avatars[0]"
-                android:id="@+id/test_Image" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"/>
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" tools:srcCompat="@tools:sample/avatars[0]"
-                android:id="@+id/test_Content_Image" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"/>
-        <TextView
-                android:text="Why do I Need this test?"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/test_Need" android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp" android:textSize="18sp" android:layout_marginBottom="8dp"/>
-        <TextView
-                android:text="Second Content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/test_Second_Content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp" android:textSize="18sp" android:maxLines="20"/>
-    </LinearLayout>
+            <TextView
+                    android:text="Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/test_Title" android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp" android:layout_marginBottom="8dp" android:textSize="24sp"/>
+            <TextView
+                    android:text="What is this Test?"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/test_Info" android:textSize="18sp"
+                    android:layout_marginStart="8dp" android:layout_marginTop="8dp" android:layout_marginBottom="8dp"/>
+            <TextView
+                    android:text="Content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/test_Content" android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp" android:textSize="18sp" android:maxLines="20"/>
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" tools:srcCompat="@tools:sample/avatars[0]"
+                    android:id="@+id/test_Image" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"/>
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" tools:srcCompat="@tools:sample/avatars[0]"
+                    android:id="@+id/test_Content_Image" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"/>
+            <TextView
+                    android:text="Why do I Need this test?"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/test_Need" android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp" android:textSize="18sp" android:layout_marginBottom="8dp"/>
+            <TextView
+                    android:text="Second Content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/test_Second_Content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp" android:textSize="18sp" android:maxLines="20"/>
+        </LinearLayout>
     </ScrollView>
+    <Button
+            android:text="Book Now"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/BookTestNowBtn" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/scrollView3"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

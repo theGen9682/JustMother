@@ -1,10 +1,12 @@
 package com.example.pregnancy
 
 import android.content.Context
+import android.content.Intent
 import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -35,6 +37,7 @@ class TestDetails : AppCompatActivity() {
         val  infoTitle= "What is this test?"
         val needTitle="Why do I need this test?"
 
+        val testName:String?=intent.getStringExtra("title")
 
         val testTitle=findViewById<TextView>(R.id.test_Title)
         val testInfoTextView=findViewById<TextView>(R.id.test_Info)
@@ -78,8 +81,13 @@ class TestDetails : AppCompatActivity() {
                 Log.d("Failed\n\n","---------------------------------------------------------------\nFailed")
             }
 
+        val bookTest=findViewById<Button>(R.id.BookTestNowBtn)
 
-
+        bookTest.setOnClickListener {
+            val bookTestIntent= Intent(this@TestDetails,TestLabsBooking::class.java)
+            bookTestIntent.putExtra("title",testName)
+            startActivity(bookTestIntent)
+        }
 
 
 

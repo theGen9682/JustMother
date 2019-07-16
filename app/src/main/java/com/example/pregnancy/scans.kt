@@ -64,7 +64,9 @@ class scans : AppCompatActivity() {
 
             val getScansBtn= scanList.findViewById<ImageButton>(R.id.get_scans)
             getScansBtn.setOnClickListener{
-                //TODO //add fragments to add scans to cart
+                val bookScanIntent=Intent(scansListContext,ScanLabsBooking::class.java)
+
+                scansListContext.startActivity(bookScanIntent)
             }
 
             return scanList
