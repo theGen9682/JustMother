@@ -1,5 +1,6 @@
 package com.example.pregnancy
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,9 @@ import com.example.pregnancy.dataModels.TestBookings
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_test_labs_booking.*
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class TestLabsBooking : AppCompatActivity() {
@@ -58,11 +62,12 @@ class TestLabsBooking : AppCompatActivity() {
             val selectedLab=spinner.selectedItem.toString()
             val time=timeSlot.text.toString()
 
-            val date =dateSlot.date
+            val date =getDate(dateSlot.date)
 
             val name= bookingName.text.toString()
+            Log.d("\n\nDate","----------------------------------------------------------------------$date")
 
-            Log.d("Name","-------------------------------------------------------------$name")
+            Log.d("\n\nName","-------------------------------------------------------------$name")
 
 
             writeInDatabase(selectedLab,name,date,time,testName)
@@ -70,11 +75,22 @@ class TestLabsBooking : AppCompatActivity() {
 
     }
 
+    @SuppressLint("SimpleDateFormat")
+    fun getDate(milliSeconds: Long): String {
+        // Create a DateFormatter object for displaying date in specified format.
+        val formatter = SimpleDateFormat("dd/MM/yyyy")
+
+        // Create a calendar object that will convert the date and time value in milliseconds to date.
+        val calendar = Calendar.getInstance()
+        calendar.timeInMillis = milliSeconds
+        return formatter.format(calendar.time)
+    }
 
 
 
 
-fun writeInDatabase(selectedLab:String,name:String,date:Long,time:String,testName:String){
+
+fun writeInDatabase(selectedLab:String,name:String,date:String,time:String,testName:String){
 
     val testDetails= TestBookings(testName,time,date)
 
