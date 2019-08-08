@@ -96,6 +96,7 @@ class tests : AppCompatActivity() {
             getBtn.setOnClickListener{
 
                 val testBookingIntent=Intent(testsListContext,TestLabsBooking::class.java)
+                testBookingIntent.putExtra("title",tests[position])
                 testsListContext.startActivity(testBookingIntent)
                Toast.makeText(testsListContext,"Get Button Clicked $position", Toast.LENGTH_SHORT).show()
             }

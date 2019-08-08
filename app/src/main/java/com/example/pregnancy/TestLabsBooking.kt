@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
-import com.example.pregnancy.dataModels.ScanBookings
+import com.example.pregnancy.dataModels.TestBookings
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_scan_labs_booking.*
 import kotlinx.android.synthetic.main.activity_test_labs_booking.*
 
+@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class TestLabsBooking : AppCompatActivity() {
 
     private lateinit var database: DatabaseReference
@@ -21,10 +21,11 @@ class TestLabsBooking : AppCompatActivity() {
 
         val testName=intent.getStringExtra("title")
 
-        val bookingName= findViewById<EditText>(R.id.editText_Name_Test)
+        val bookingName= findViewById<EditText>(R.id.editText_Name)
 
         val timeSlot=findViewById<EditText>(R.id.TestTime)
-        val dateSlot=findViewById<EditText>(R.id.TestDate)
+        val dateSlot=findViewById<CalendarView>(R.id.dateSlot)
+
 
 
         val labs= arrayOf("Choose A Lab","Lab 1","Lab 2")
@@ -56,20 +57,26 @@ class TestLabsBooking : AppCompatActivity() {
         bookTest.setOnClickListener {
             val selectedLab=spinner.selectedItem.toString()
             val time=timeSlot.text.toString()
-            val date=dateSlot.text.toString()
-            val name=bookingName.text.toString()
+
+            val date =dateSlot.date
+
+            val name= bookingName.text.toString()
 
             Log.d("Name","-------------------------------------------------------------$name")
 
 
             writeInDatabase(selectedLab,name,date,time,testName)
     }
-}
+
+    }
 
 
-fun writeInDatabase(selectedLab:String,name:String,date:String,time:String,testName:String){
 
-    val testDetails= ScanBookings(testName,time,date)
+
+
+fun writeInDatabase(selectedLab:String,name:String,date:Long,time:String,testName:String){
+
+    val testDetails= TestBookings(testName,time,date)
 
 
     database.child("Test Boookings").child(selectedLab).child("Bookings").child(name).setValue(testDetails)
@@ -77,3 +84,4 @@ fun writeInDatabase(selectedLab:String,name:String,date:String,time:String,testN
 
 }
 }
+
